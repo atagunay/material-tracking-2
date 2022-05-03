@@ -1,0 +1,30 @@
+<%= form_with(model: material) do |form| %>
+  <% if material.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(material.errors.count, "error") %> prohibited this material from being saved:</h2>
+
+      <ul>
+        <% material.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.text_field :name, placeholder:"Name", class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.number_field :quantity, placeholder:"Quantity", class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.text_field :explanation, placeholder:"Explanation", class: "form-control"%>
+  </div>
+
+  <div>
+    <%= form.submit class:"btn btn-secondary" %>
+    <%= link_to "Back to materials", materials_path, class: "btn btn-secondary"%>
+  </div>
+<% end %>
