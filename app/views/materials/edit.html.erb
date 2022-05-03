@@ -1,8 +1,18 @@
-<h1>Editing material</h1>
+<div class="card">
+  <div class="card-header">
+    <h1>Editing material</h1>
 
-<%= render "form", material: @material %>
+  </div>
+  <div class="card-body">
+    <%= render "form", material: @material %>
 
-<br>
+    <br>
+    <%= button_to "Delete", @material, method: :delete, class:"btn btn-danger" %>
+  </div>
+</div>
+
+
+
 
 <!--
 <div>

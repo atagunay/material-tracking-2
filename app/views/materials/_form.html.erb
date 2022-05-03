@@ -23,6 +23,10 @@
     <%= form.text_field :explanation, placeholder:"Explanation", class: "form-control"%>
   </div>
 
+  <div class="mb-3">
+    <%= form.number_field :user_id, class: "form-control", value:current_user.id, type: :hidden%>
+  </div>
+
   <div>
     <%= form.submit class:"btn btn-secondary" %>
     <%= link_to "Back to materials", materials_path, class: "btn btn-secondary"%>

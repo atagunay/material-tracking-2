@@ -1,5 +1,6 @@
 class MaterialsController < ApplicationController
   before_action :set_material, only: %i[ show edit update destroy ]
+  before_action :correct_user, only: [ :edit, :update, :destroy ]
 
   # GET /materials or /materials.json
   def index
@@ -12,16 +13,24 @@ class MaterialsController < ApplicationController
 
   # GET /materials/new
   def new
-    @material = Material.new
+    #@material = Material.new
+    @material = current_user.material.build
   end
 
   # GET /materials/1/edit
   def edit
   end
 
+  #???????????????????????????
+  def correct_user
+    @material = current_user.material.find_by(id: params[:id])
+    redirect_to materials_path, notice: "Not Authorized For This Operation" if @material.nil?
+  end
+
   # POST /materials or /materials.json
   def create
-    @material = Material.new(material_params)
+    #@material = Material.new(material_params)
+    @material = current_user.material.build(material_params)
 
     respond_to do |format|
       if @material.save
@@ -65,6 +74,6 @@ class MaterialsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def material_params
-      params.require(:material).permit(:name, :explanation, :quantity)
+      params.require(:material).permit(:name, :explanation, :quantity, :user_id)
     end
 end

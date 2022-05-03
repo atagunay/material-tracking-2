@@ -4,18 +4,18 @@
     <th>NAME</th>
     <th>EXPLANATION</th>
     <th>QUANTITY</th>
-    <th colspan="3" class="text-center">TOOLS</th>
+    <th>USER ID</th>
+    <th colspan="1" class="text-center"></th>
   </tr>
   </thead>
   <tbody>
   <% @materials.each do |material| %>
     <tr>
-      <td><%= material.name %></td>
+      <td><%= link_to material.name, material%></td>
       <td><%= material.explanation %></td>
       <td><%= material.quantity %></td>
-      <td><%= link_to "Show", material, class: "btn btn-secondary"%></td>
-      <td><%= link_to "Edit", edit_material_path(material), class: "btn btn-warning" %></td>
-      <td><%= button_to "Delete", material, method: :delete, class: "btn btn-danger", form: {data: {turbo_confirm: 'Are you sure?'}} %></td>
+      <td><%= material.user_id %></td>
+      <td><%= button_to "Delete", material, method: :delete, class: "btn btn-outline-danger", form: {data: {turbo_confirm: 'Are you sure?'}} %></td>
     </tr>
   <% end %>
   </tbody>

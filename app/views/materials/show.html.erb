@@ -1,11 +1,7 @@
 <div class="p-3 mb-2 bg-dark text-white">
   <h1 class="display-4"> <%= @material.name %> </h1>
   <p class="lead"><%= @material.quantity %> || <%= @material.explanation %> </p>
-  <%= link_to "Edit this material", edit_material_path(@material), class: "btn btn-secondary"%>
-  <%= link_to "Back to materials", materials_path, class: "btn btn-secondary"%>
+  <%= link_to "Edit", edit_material_path(@material), class: "btn btn-secondary"%>
+  <%= link_to "Back", materials_path, class: "btn btn-secondary"%>
 </div>
 
-<div>
-  <br><br>
-  <%= button_to "Destroy this material", @material, method: :delete %>
-</div>
