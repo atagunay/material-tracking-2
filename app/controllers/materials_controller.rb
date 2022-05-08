@@ -74,6 +74,6 @@ class MaterialsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def material_params
-      params.require(:material).permit(:name, :explanation, :quantity, :user_id)
+      params.require(:material).permit(:name, :explanation, :quantity, :reorder_quantity, :user_id, :location)
     end
 end

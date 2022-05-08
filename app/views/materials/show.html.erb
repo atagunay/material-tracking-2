@@ -1,6 +1,9 @@
 <div class="p-3 mb-2 bg-dark text-white">
   <h1 class="display-4"> <%= @material.name %> </h1>
-  <p class="lead"><%= @material.quantity %> || <%= @material.explanation %> </p>
+  <p class="lead">In Stock Quantity: <%= @material.quantity %></p>
+  <p class="lead">Reorder Quantity: <%= @material.reorder_quantity %></p>
+  <p class="lead">Explanation: <%= @material.explanation %></p>
+  <p class="lead">Location: <%= @material.location %></p>
   <%= link_to "Edit", edit_material_path(@material), class: "btn btn-secondary"%>
   <%= link_to "Back", materials_path, class: "btn btn-secondary"%>
 </div>

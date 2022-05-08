@@ -28,8 +28,13 @@
   </div>
 
   <div class="mb-3">
+    <%= form.text_field :location, placeholder:"Location", class: "form-control"%>
+  </div>
+
+  <div class="mb-3">
     <%= form.number_field :user_id, class: "form-control", value:current_user.id, type: :hidden%>
   </div>
+
 
   <div>
     <%= form.submit class:"btn btn-secondary" %>
