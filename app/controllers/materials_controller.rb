@@ -4,7 +4,13 @@ class MaterialsController < ApplicationController
 
   # GET /materials or /materials.json
   def index
+    #@q = Material.ransack(params[:q])
     @materials = Material.all
+    respond_to do |format|
+      format.html
+      format.csv {send_data @materials.to_csv}
+    end
+
   end
 
   # GET /materials/1 or /materials/1.json
