@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+      table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+      }
+
+      td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+      }
+
+      tr:nth-child(even) {
+          background-color: #dddddd;
+      }
+  </style>
+</head>
+<body>
+
+<h2>Material Table</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Explanation</th>
+    <th>Quantity</th>
+    <th>Reorder Quantity</th>
+    <th>Location</th>
+
+  </tr>
+
+  <% @materials.each do |material| %>
+  <tr>
+    <td><%= material.name%></td>
+    <td><%= material.explanation %></td>
+    <td><%= material.quantity %></td>
+    <td><%= material.reorder_quantity %></td>
+    <td><%= material.location %></td>
+  </tr>
+  <% end %>
+
+
+</table>
+
+</body>
+</html>
+
+
+
+
