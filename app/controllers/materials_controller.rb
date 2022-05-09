@@ -9,6 +9,9 @@ class MaterialsController < ApplicationController
     respond_to do |format|
       format.html
       format.csv {send_data @materials.to_csv}
+      format.pdf do
+        render pdf: "file_name", template: "materials/pdfView", formats: [:html]
+      end
     end
 
   end
