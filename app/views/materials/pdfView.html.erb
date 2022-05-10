@@ -26,20 +26,23 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Explanation</th>
     <th>Quantity</th>
     <th>Reorder Quantity</th>
+    <th>Status</th>
     <th>Location</th>
+    <th>Explanation</th>
 
   </tr>
 
   <% @materials.each do |material| %>
   <tr>
     <td><%= material.name%></td>
-    <td><%= material.explanation %></td>
     <td><%= material.quantity %></td>
     <td><%= material.reorder_quantity %></td>
+    <td><%= material&.status&.name %></td>
     <td><%= material.location %></td>
+    <td><%= material.explanation %></td>
+
   </tr>
   <% end %>
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #resources :statuses
   get 'log/index'
   devise_for :users
   resources :materials

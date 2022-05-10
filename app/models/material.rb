@@ -1,6 +1,8 @@
 require 'csv'
 class Material < ApplicationRecord
   belongs_to :user
+  belongs_to :status
+  before_update :set_sent_date
 
   include PublicActivity::Model
   tracked owner: Proc.new{ |controller, model| controller.current_user }
@@ -20,6 +22,15 @@ class Material < ApplicationRecord
           material.send(attr)
         end
       end
+    end
+  end
+
+
+
+  def set_sent_date
+    if self.status.name == 'In Stock'
+      self.quantity = self.quantity + self.reorder_quantity
+      self.reorder_quantity = 0
     end
   end
 end
