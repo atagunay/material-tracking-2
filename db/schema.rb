@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_09_140543) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_10_151427) do
   create_table "activities", force: :cascade do |t|
     t.string "trackable_type"
     t.integer "trackable_id"
@@ -39,7 +39,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_09_140543) do
     t.integer "user_id"
     t.integer "reorder_quantity"
     t.string "location", default: "unknown", null: false
+    t.integer "status_id", default: 0
+    t.index ["status_id"], name: "index_materials_on_status_id"
     t.index ["user_id"], name: "index_materials_on_user_id"
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 # Could not dump table "users" because of following StandardError

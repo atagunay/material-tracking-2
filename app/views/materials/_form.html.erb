@@ -35,6 +35,9 @@
     <%= form.number_field :user_id, class: "form-control", value:current_user.id, type: :hidden%>
   </div>
 
+  <div class="mb-3">
+    <%= form.select :status_id, Status.all.collect { |p| [ p.name, p.id ] } %>
+  </div>
 
   <div>
     <%= form.submit class:"btn btn-secondary" %>

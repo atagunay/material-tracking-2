@@ -6,11 +6,12 @@
   <thead class="table-dark">
   <tr>
     <th>NAME</th>
-    <th>EXPLANATION</th>
     <th>QUANTITY</th>
     <th>REORDER QUANTITY</th>
-    <th>USER ID</th>
+    <th>STATUS</th>
     <th>LOCATION</th>
+    <th>EXPLANATION</th>
+    <th>USER</th>
     <!--<th colspan="1" class="text-center"></th>-->
   </tr>
   </thead>
@@ -18,11 +19,14 @@
   <% @materials.each do |material| %>
     <tr>
       <td><%= link_to material.name, material%></td>
-      <td><%= material.explanation %></td>
       <td><%= material.quantity %></td>
       <td><%= material.reorder_quantity %></td>
-      <td><%= material.user.email %></td>
+      <td><%= material&.status&.name %></td>
       <td><%= material.location %></td>
+      <td><%= material.explanation %></td>
+      <td><%= material.user.email %></td>
+
+
       <!-- <td><%= button_to "Delete", material, method: :delete, class: "btn btn-outline-danger", form: {data: {turbo_confirm: 'Are you sure?'}} %></td>
        -->
     </tr>
