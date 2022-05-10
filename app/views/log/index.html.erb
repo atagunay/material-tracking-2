@@ -1,0 +1,21 @@
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
+  <tr>
+    <th>CREAT AT</th>
+    <th>RELATED (IF EXIST)</th>
+    <th>FUNCTION</th>
+    <th>OWNER</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @activities.each do |a| %>
+    <tr>
+      <td><%= a.created_at %></td>
+      <td><%= link_to a.trackable.name, a.trackable if a.trackable_type == 'Material' %></td>
+      <td><%= a.key %></td>
+      <td><%= a.owner&.email %></td>
+    </tr>
+  <% end %>
+  </tbody>
+
+</table>
