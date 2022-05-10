@@ -26,9 +26,8 @@ class Material < ApplicationRecord
   end
 
 
-
   def set_sent_date
-    if self.status.name == 'In Stock'
+    if self.status.name == 'In Stock' and self.reorder_quantity != 0 and self .reorder_quantity != nil
       self.quantity = self.quantity + self.reorder_quantity
       self.reorder_quantity = 0
     end
