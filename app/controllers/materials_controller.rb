@@ -4,7 +4,6 @@ class MaterialsController < ApplicationController
 
   # GET /materials or /materials.json
   def index
-    #@q = Material.ransack(params[:q])
     @materials = Material.all
     respond_to do |format|
       format.html
