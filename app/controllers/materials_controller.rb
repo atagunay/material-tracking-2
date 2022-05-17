@@ -1,6 +1,6 @@
 class MaterialsController < ApplicationController
   before_action :set_material, only: %i[ show edit update destroy ]
-  before_action :correct_user, only: [ :edit, :update, :destroy ]
+  #before_action :correct_user, only: [ :edit, :update, :destroy ]
 
   # GET /materials or /materials.json
   def index
