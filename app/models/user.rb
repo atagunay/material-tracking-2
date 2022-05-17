@@ -10,4 +10,6 @@ class User < ApplicationRecord
   tracked only: [:create, :destroy], owner: :itself
 
 
+
+
 end

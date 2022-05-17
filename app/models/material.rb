@@ -32,4 +32,13 @@ class Material < ApplicationRecord
       self.reorder_quantity = 0
     end
   end
+
+  validates :name , presence: true
+  validates :explanation ,presence: true
+  validates :quantity, presence: true
+  validates :user_id, presence: true
+  validates :reorder_quantity, presence: true
+  validates :status_id , presence: true
+  
+
 end
