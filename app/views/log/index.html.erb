@@ -11,7 +11,7 @@
   <% @activities.each do |a| %>
     <tr>
       <td><%= a.created_at %></td>
-      <td><%= link_to a.trackable.name, a.trackable if a.trackable_type == 'Material' %></td>
+      <td><%= link_to a.trackable&.name, a.trackable if a.trackable_type == 'Material' %></td>
       <td><%= a.key %></td>
       <td><%= a.owner&.email %></td>
     </tr>

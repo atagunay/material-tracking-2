@@ -7,8 +7,8 @@ class Material < ApplicationRecord
   include PublicActivity::Model
   tracked owner: Proc.new{ |controller, model| controller.current_user }
 
-  has_many :activities, as: :trackable, class_name: 'PublicActivity::Activity',
-           dependent: :destroy
+  has_many :activities, as: :trackable, class_name: 'PublicActivity::Activity'
+
 
   def self.to_csv
     # %w(foo bar) is a shortcut for ["foo", "bar"]
