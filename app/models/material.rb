@@ -34,7 +34,6 @@ class Material < ApplicationRecord
   end
 
   validates :name , presence: true
-  validates :explanation ,presence: true
   validates :quantity, presence: true
   validates :user_id, presence: true
   validates :reorder_quantity, presence: true
